@@ -88,7 +88,7 @@ public class MontrealTradedProductsTests {
    tradedProducts.trade(futuresAdded,20);
    tradedProducts.trade(s,30);
    tradedProducts.trade(stocksAdded,10);
-   double expected=(19*65)+(20*45)+(30*42)+(10*38);
+   double expected=(f.currentValue*19)+(futuresAdded.currentValue*20)+(s.currentValue*30)+(stocksAdded.currentValue*10);
 
 
    assertEquals(expected,tradedProducts.totalValueOfDaysTradedProducts(),0.2);

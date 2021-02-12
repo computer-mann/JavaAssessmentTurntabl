@@ -5,6 +5,7 @@ import Models.Products;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MontrealTradedProducts implements IMontrealTradedProducts {
 
@@ -43,8 +44,8 @@ public class MontrealTradedProducts implements IMontrealTradedProducts {
     @Override
     public double totalValueOfDaysTradedProducts() {
         double result=0;
-        for(var products:productMap.entrySet()){
-            result += products.getKey().currentValue * products.getValue();
+        for(Map.Entry<Products, Integer> entry:productMap.entrySet()){
+            result = result + (((Products)entry.getKey()).currentValue * entry.getValue());
         }
         return result;
     }

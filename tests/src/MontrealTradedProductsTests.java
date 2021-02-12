@@ -31,10 +31,10 @@ public class MontrealTradedProductsTests {
 
 
             ///this is my mock data
-        when(service.price("TESLA","TSLA")).thenReturn(420.69);
-        when(service.price("GOOGLE","GOOGL",3,2021)).thenReturn(652.0);
-        when(service.price("AA","City")).thenReturn(389.0);
-        when(service.price("Diamonds","Dmd",5,2021)).thenReturn(451.0);
+        when(service.price("TESLA","TSLA")).thenReturn(42.0);
+        when(service.price("GOOGLE","GOOGL",3,2021)).thenReturn(65.0);
+        when(service.price("AA","City")).thenReturn(38.0);
+        when(service.price("Diamonds","Dmd",5,2021)).thenReturn(45.0);
         try{
             tradedProducts.addNewProduct(futuresAdded);
             tradedProducts.addNewProduct(stocksAdded);
@@ -88,7 +88,7 @@ public class MontrealTradedProductsTests {
    tradedProducts.trade(futuresAdded,20);
    tradedProducts.trade(s,30);
    tradedProducts.trade(stocksAdded,10);
-   double expected=(19*652)+(20*451)+(30*420.69)+(10*389);
+   double expected=(19*65)+(20*45)+(30*42)+(10*38);
 
 
    assertEquals(expected,tradedProducts.totalValueOfDaysTradedProducts(),0.2);

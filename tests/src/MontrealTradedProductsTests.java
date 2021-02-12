@@ -48,7 +48,8 @@ public class MontrealTradedProductsTests {
 
     @Test(expected = ProductAlreadyRegisteredException.class)
     public void addNewProductTests() throws ProductAlreadyRegisteredException{
-        tradedProducts.addNewProduct(new Futures(service,"0002","Diamonds","Dmd",5,2021));
+       // tradedProducts.addNewProduct(new Futures(service,"0002","Diamonds","Dmd",5,2021));
+        tradedProducts.addNewProduct(futuresAdded);
     }
 
     @Test

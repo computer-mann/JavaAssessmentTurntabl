@@ -11,6 +11,7 @@ public class Stocks extends Products{
         currentValue=service.price(exchange,stockTicker);
         this.stockTicker=stockTicker;
         this.exchange=exchange;
+        this.productId=productId;
     }
 
 }

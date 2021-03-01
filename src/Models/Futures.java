@@ -16,6 +16,7 @@ public class Futures extends Products{
         this.contractCode=contractCode;
         this.month=month;
         this.year=year;
+        this.productId=productId;
         currentValue=service.price(this.exchange,this.contractCode,month,year);
 
     }

@@ -29,12 +29,11 @@ public class MontrealTradedProductsTests {
             stocksAdded=new Stocks(service,"0001","AA","City");
             futuresAdded=new Futures(service,"0002","Diamonds","Dmd",5,2021);
 
-
             ///this is my mock data
         when(service.price("TESLA","TSLA")).thenReturn(42.0);
         when(service.price("GOOGLE","GOOGL",3,2021)).thenReturn(65.0);
-        when(service.price("AA","City")).thenReturn(38.0);
-        when(service.price("Diamonds","Dmd",5,2021)).thenReturn(45.0);
+//        when(service.price("AA","City")).thenReturn(38.0);
+//        when(service.price("Diamonds","Dmd",5,2021)).thenReturn(45.0);
         try{
             tradedProducts.addNewProduct(futuresAdded);
             tradedProducts.addNewProduct(stocksAdded);
@@ -44,12 +43,10 @@ public class MontrealTradedProductsTests {
 
     }
 
-
-
     @Test(expected = ProductAlreadyRegisteredException.class)
     public void addNewProductTests() throws ProductAlreadyRegisteredException{
-       // tradedProducts.addNewProduct(new Futures(service,"0002","Diamonds","Dmd",5,2021));
-        tradedProducts.addNewProduct(futuresAdded);
+        tradedProducts.addNewProduct(new Futures(service,"0002","Diamonds","Dmd",5,2021));
+       // tradedProducts.addNewProduct(futuresAdded);
     }
 
     @Test
@@ -90,7 +87,6 @@ public class MontrealTradedProductsTests {
    tradedProducts.trade(s,30);
    tradedProducts.trade(stocksAdded,10);
    double expected=(f.currentValue*19)+(futuresAdded.currentValue*20)+(s.currentValue*30)+(stocksAdded.currentValue*10);
-
 
    assertEquals(expected,tradedProducts.totalValueOfDaysTradedProducts(),0.2);
 

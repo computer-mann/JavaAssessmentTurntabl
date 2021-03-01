@@ -11,16 +11,6 @@ public class MontrealTradedProducts implements IMontrealTradedProducts {
 
     private final HashMap<Products,Integer> productMap=new HashMap<>();
 
-//    public MontrealTradedProducts(List<Products> products){
-//        for(var p:products) {
-//            productMap.put(p, 0);
-//        }
-//    }
-//
-//    public MontrealTradedProducts(){
-//
-//    }
-
     @Override
     public void addNewProduct(Products product) throws ProductAlreadyRegisteredException {
         if(productMap.containsKey(product)) throw new ProductAlreadyRegisteredException("Product Already exists");
